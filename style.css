@@ -1,0 +1,443 @@
+body {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+body a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Начало Header */
+
+.header {
+    margin-top: 28px;
+    .header__logo {
+        width: 104px;
+        height: 26px;
+    }
+    
+    .header__nav {
+        display: flex;
+        gap: 65px;
+        font-size: 14px;
+        color: #555248;
+    }
+    
+    .header__nav a {
+        position: relative;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        color: inherit; 
+    }
+    
+    .header__nav a:hover {
+        color: #000; 
+    }
+    
+    .header__nav a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        width: 0;
+        height: 2px;
+        background-color: #000;
+        transition: width 0.3s ease;
+    }
+    
+    .header__nav a:hover::after {
+        width: 100%; 
+    }
+    
+    .header__nav a:active, .header__nav a:focus {
+        color: #000;
+        outline: none;
+    } 
+    
+    .header__trash {
+        position: relative;
+        display: flex;
+        gap: 23px;
+    }
+    
+    .header__trash img {
+        width: 24px; 
+        height: 24px;
+        cursor: pointer;
+    }
+}
+
+/* Конец Header */
+
+/* Начало Main */
+.main {
+    margin-top: 57px;
+    
+}
+.main__page{
+    .main__page-catalog{
+        display: flex;
+        gap: 14px;
+        font-size: 14px;
+        font-weight: 400;
+    
+    
+        a{
+            color: #555248;
+            padding-right: 14px;
+        }
+    }
+    
+    .main__page-text{
+        margin-top: 40px;
+        width: 1160px;
+        display: flex;
+        justify-content: space-between;
+        .main__page-text-title{
+            font-size: 32px;
+            color: #1B1A17;
+        }
+        .main__page-text-subtitle{
+            font-size: 14px;
+            font-weight: 400;
+            color: #BDB9B5;
+            span {
+                color: #1B1A17;
+            }
+            .sort-dropdown {
+                border: none;
+                padding: 5px 10px;
+                font-size: 14px;
+                outline: none;
+                background-color: #fff;
+                cursor: pointer;
+            }
+        }
+    
+    }
+    
+    .main__page-content {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+      
+            .main__page-content-filter {
+            text-align: center;
+            width: 230px;
+            
+    
+            /* Стили для слайдера */
+            input[type="range"] {
+                -webkit-appearance: none; /* Отключает стандартное оформление для браузеров WebKit (например, Chrome, Safari) */
+                appearance: none; /* Отключает стандартное оформление для других браузеров */
+                max-width: 230px; /* Ширина слайдера */
+                height: 3px; /* Высота трека */
+                background: transparent; /* Делаем фон прозрачным */
+            }
+    
+            /* Стили для заполненной части слайдера */
+            input[type="range"]::-webkit-slider-runnable-track {
+                height: 5px; /* Выравнивание высоты трека */
+                background: #d8bb64;
+                border-radius: 5px;
+            }
+    
+            /* Стили для ползунка слайдера */
+            input[type="range"]::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 15px;  /* Увеличиваем размер ползунка */
+                height: 15px; /* Увеличиваем размер ползунка */
+                border-radius: 50%; /* Круглый ползунок */
+                background: #d7a201; /* Цвет ползунка */
+                border: none;
+                cursor: pointer;
+                margin-top: -5px; /* Поднимаем ползунок для его выравнивания */
+            }
+        }
+        
+        .main__page-content-filter-price {
+            margin: 20px;
+        
+            /* Стили для списка чекбоксов */
+            .checkbox-list {
+                list-style-type: none;
+                padding: 0;
+            }
+        
+            /* Стили для каждого элемента списка */
+            .checkbox-list li {
+                display: flex;
+                align-items: center; /* Вертикальное выравнивание элементов */
+                margin-bottom: 10px; /* Отступы между элементами */
+            }
+        
+            /* Стили для чекбоксов */
+            .checkbox-list input[type="checkbox"] {
+                margin-right: 10px; /* Отступ между чекбоксом и текстом */
+                -webkit-appearance: none; /* Отключает стандартное оформление для браузеров WebKit */
+                appearance: none; /* Отключает стандартное оформление для других браузеров */
+                width: 20px; /* Размер чекбокса */
+                height: 20px; /* Размер чекбокса */
+                border: 2px solid #ccc; /* Цвет границы для чекбокса */
+                border-radius: 3px; /* Скругленные углы */
+                display: inline-block;
+                position: relative;
+                cursor: pointer;
+            }
+        
+            /* Стили для активного состояния чекбокса */
+            .checkbox-list input[type="checkbox"]:checked {
+                background-color: #d7a201; /* Цвет фона при активном чекбоксе (желтый) */
+                border-color: #d7a201; /* Цвет границы при активном чекбоксе */
+            }
+        
+            /* Стили для галочки */
+            .checkbox-list input[type="checkbox"]:checked::before {
+                content: '\2713'; /* Юникод для символа галочки */
+                color: white; /* Цвет галочки */
+                font-size: 14px; /* Размер галочки */
+                position: absolute;
+                top: 0;
+                left: 3px; /* Позиция галочки внутри чекбокса */
+            }
+        
+            /* Эффект при наведении на чекбокс */
+            .checkbox-list input[type="checkbox"]:hover {
+                border-color: #888; /* Цвет границы при наведении */
+            }
+        
+            /* Стили для текста метки */
+            .checkbox-list label {
+                font-size: 1rem;
+                font-weight: normal;
+                color: #333;
+            }
+        }
+
+        .main__page-content-about{
+            margin-top: 30px;
+            .about-item{
+                padding: 10px 0;
+                display: flex;
+                justify-content: space-between;
+            }
+            .about-reset{
+                display: flex;
+                margin-top: 35px;
+                max-width: 230px;
+                height: 60px;
+                border: 2px solid slategray;
+                
+
+                a{
+                    color: #555248;
+                    align-items: center;
+                    margin: 0 auto;
+                    display: flex;
+                    font-size: 12px;
+                }
+            }
+        }
+    
+        .main__page-content-product {
+          width: 100%;
+          text-align: center;
+          display: grid;
+      
+          .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 20px;
+      
+            .product-card {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: #f4f4f4;
+              border: 1px solid #ddd;
+              border-radius: 8px;
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+              overflow: hidden;
+              transition: transform 0.2s, box-shadow 0.2s;
+      
+              &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+              }
+      
+              .product-card-wrapper {
+                padding: 15px;
+      
+                .product-card-info {
+                  margin-bottom: 10px;
+      
+                  .product-card-name {
+                    font-size: 18px;
+                    color: #333;
+                    margin-bottom: 5px;
+                  }
+      
+                  .product-card-price {
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #1B1A17;
+                  }
+                }
+      
+                .product-card-image {
+                    min-width: 175px;
+                    min-height: 380px;
+                  max-width: 100%;
+                  height: auto;
+                  border-radius: 6px;
+                  margin-bottom: 10px;
+                }
+                .product-card-image-catalog{
+                    width: 100%;
+                    height: 100%;
+                }
+      
+                .product-card-icons {
+                  display: flex;
+                  justify-content: center;
+                  gap: 10px;
+      
+                  .product-card-icon-button {
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    padding: 5px;
+                    border-radius: 50%;
+                    transition: background 0.2s;
+      
+                    &:hover {
+                      background: #f0f0f0;
+                    }
+      
+                    img {
+                      width: 24px;
+                      height: 24px;
+                      color: #555;
+                    }
+      
+                    &:hover img {
+                      color: #007bff;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+    }
+}
+
+.main__banner {
+    transform: translateX(-50%);
+    left: 50%;
+    width: 100%;
+    position: absolute;
+    opacity: 1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 295px;
+    background-image: url('img/banner.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+.main__banner-title {
+    color: #818181;
+    text-align: left;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 15px;
+
+}
+
+.container-banner{
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+
+    display: block;
+}
+
+
+.main__banner-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    span {
+        color: #555248;
+    }
+}
+
+.main__banner-label {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.main__banner-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.main__banner-input {
+    padding: 10px 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 250px;
+    outline: none;
+}
+
+.main__banner-input:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+.main__banner-input::placeholder {
+    color: #ccc; 
+    font-style: italic; 
+    font-size: 14px; 
+    transition: color 0.3s ease;
+}
+
+.main__banner-input:focus::placeholder {
+    color: transparent; 
+}
+
+
+.main__banner-btn {
+    padding: 25px 45px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #31302C;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.main__banner-btn:hover {
+    background-color: #d7a201;
+}
+
+
