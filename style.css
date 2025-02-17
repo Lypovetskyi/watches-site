@@ -1,4 +1,5 @@
 body {
+    margin: 0 auto;
     font-family: 'Noto Sans', sans-serif;
 }
 
@@ -550,8 +551,30 @@ body a {
 /* Start Footer */
 
 .footer{
+    width: 100%;
+    background: #e4bd95;
+    color: #FFFFFF;
+    
     margin-top: 40px;
+    h3 {
+        font-size: 14px;
+    }
+    ul{
+        font-size: 12px;
+        opacity: 0.75;
+        align-items: center;
+        margin: 0 auto;
+        justify-content: center;
+        text-align: center;
+        list-style-type: none;
+        padding: 0;
+
+        li{
+            padding-bottom: 15px;
+        }
+    }
     .footer__contact{
+        padding-top: 25px;
         justify-content: space-between;
         display: flex;
         text-align: center;
@@ -563,4 +586,22 @@ body a {
             gap: 15px;
         }
     }
+}
+
+/* --- Медиа-запросы для адаптива --- */
+
+@media (max-width: 1919px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Средние устройства (768-1279px) */
+@media (max-width: 1279px) {
+    
+}
+
+/* Мобильные устройства (360-767px) */
+@media (max-width: 767px) {
+    
 }
